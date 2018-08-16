@@ -7,12 +7,16 @@
 //
 
 import UIKit
-
+struct Headline {
+    var text: String
+    var image: String
+}
 class TableViewController: UITableViewController {
     
     
 
     var fruits = ["banana", "apple","kiwi","orange"]
+    var photoPicture = [UIImage(named: "image1"),UIImage(named: "image2"),UIImage(named: "image3"),UIImage(named: "image4")]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,12 +36,10 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         // Configure the cell...
         let fruisName = fruits[indexPath.row]
+        let images = photoPicture[indexPath.row]
         cell.firstLabel?.text = fruisName
         cell.apple.text = "nguon goc tu my"
-        cell.kiwi.text = " 3 $"
-        cell.orange.text = "delicious"
-        //cell.photoImage.image = UIImage(named: fruisName)
-        cell.photoImage.image = #imageLiteral(resourceName: "image3")
+        cell.photoImage?.image = images
         return cell
     }
 
